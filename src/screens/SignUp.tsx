@@ -9,18 +9,17 @@ import {
   Alert,
 } from 'react-native';
 import {useNavigation} from '@react-navigation/native';
-
 import IonIcons from 'react-native-vector-icons/Ionicons';
 
-const LoginScreen = () => {
+const SignUpScreen = () => {
   const navigation = useNavigation();
   const [passwordVisible, setPasswordVisible] = useState(false);
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [name, setName] = useState('');
 
   const handleSignIn = () => {
-    //Alert.alert('Sign In', `Email: ${email}\nPassword: ${password}`);
-    navigation.navigate('SignUp');
+    navigation.navigate('BottomTabs');
   };
 
   const handleForgotPassword = () => {
@@ -39,7 +38,13 @@ const LoginScreen = () => {
           style={{width: 200, height: 200}}
         />
       </View>
-      <Text style={styles.signInText}>Sign In</Text>
+      <Text style={styles.signInText}>Sign Up</Text>
+      <TextInput
+        style={styles.input}
+        placeholder="Name"
+        value={name}
+        onChangeText={setName}
+      />
       <TextInput
         style={styles.input}
         placeholder="Email"
@@ -76,7 +81,7 @@ const LoginScreen = () => {
         <Text style={styles.forgotPassword}>Forgot Password?</Text>
       </TouchableOpacity>
       <TouchableOpacity style={styles.signInButton} onPress={handleSignIn}>
-        <Text style={styles.signInButtonText}>Sign In</Text>
+        <Text style={styles.signInButtonText}>Sign Up</Text>
       </TouchableOpacity>
 
       <View style={{alignItems: 'center', marginBottom: 20}}>
@@ -177,4 +182,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default LoginScreen;
+export default SignUpScreen;
