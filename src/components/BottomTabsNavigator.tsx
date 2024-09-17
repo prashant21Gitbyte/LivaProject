@@ -4,6 +4,7 @@ import Ionicons from 'react-native-vector-icons/Ionicons';
 import MatIcons from 'react-native-vector-icons/MaterialIcons';
 import {NavigationContainer} from '@react-navigation/native';
 import HomeTab from '../screens/HomeTab';
+import AccountTab from '../screens/AccountTab';
 
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 
@@ -30,8 +31,9 @@ function Second() {
 
 function Third() {
   return (
-    <View
-      style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}></View>
+    <View style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
+      <AccountTab />
+    </View>
   );
 }
 
@@ -53,26 +55,28 @@ const BottomTabsNavigator = () => {
   return (
     <Tab.Navigator
       screenOptions={({route}) => ({
+        //tabBarActiveTintColor: 'tomato',
+        //tabBarInactiveTintColor: 'white',
         tabBarIcon: ({focused, color, size}) => {
           let iconName;
 
           if (route.name === 'Home') {
             iconName = focused ? 'home' : 'home-outline';
-          } else if (route.name === 'My Orders') {
-            iconName = focused ? 'cube' : 'cube-outline';
-          } else if (route.name === 'Cart') {
-            iconName = focused ? 'cart' : 'cart-outline';
-          } else if (route.name === 'More') {
-            iconName = focused ? 'moon' : 'moon-outline';
-          } else if (route.name === 'Orders') {
-            iconName = focused ? 'cube' : 'cube-outline';
+          } else if (route.name === 'Leads') {
+            iconName = focused ? 'star' : 'star-outline';
+          } else if (route.name === 'Account') {
+            iconName = focused ? 'newspaper' : 'newspaper-outline';
+          } else if (route.name === 'Contact') {
+            iconName = focused ? 'mail' : 'mail-outline';
+          } else if (route.name === 'Menu') {
+            iconName = focused ? 'menu' : 'menu-outline';
           }
 
           // You can return any component that you like here!
           return <Ionicons name={iconName} size={size} color={color} />;
         },
-        tabBarActiveTintColor: 'tomato',
-        tabBarInactiveTintColor: 'gray',
+        tabBarActiveTintColor: '#2D949F',
+        tabBarInactiveTintColor: '#33363F',
 
         tabBarStyle: {
           padding: 5,
@@ -83,7 +87,7 @@ const BottomTabsNavigator = () => {
           return (
             <Text
               style={{
-                color: focused ? 'tomato' : 'gray',
+                color: focused ? '#2D949F' : '#33363F',
                 fontSize: 14,
                 fontWeight: 'bold',
                 marginBottom: 9,
@@ -99,22 +103,22 @@ const BottomTabsNavigator = () => {
         component={First}
       />
       <Tab.Screen
-        name="Orders"
+        name="Leads"
         options={{headerShown: false}}
         component={Second}
       />
       <Tab.Screen
-        name="Cart"
+        name="Account"
         options={{headerShown: false}}
         component={Third}
       />
       <Tab.Screen
-        name="More"
+        name="Contact"
         options={{headerShown: false}}
         component={Fourth}
       />
       <Tab.Screen
-        name="My Orders"
+        name="Menu"
         options={{headerShown: false}}
         component={Fifth}
       />
