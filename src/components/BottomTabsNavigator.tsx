@@ -5,6 +5,7 @@ import MatIcons from 'react-native-vector-icons/MaterialIcons';
 import {NavigationContainer} from '@react-navigation/native';
 import HomeTab from '../screens/HomeTab';
 import AccountTab from '../screens/AccountTab';
+import ProgressSection from '../screens/ProgressIndicator';
 
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 
@@ -24,8 +25,9 @@ function First() {
 
 function Second() {
   return (
-    <View
-      style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}></View>
+    <View style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
+      <ProgressSection />
+    </View>
   );
 }
 
