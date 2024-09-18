@@ -121,6 +121,8 @@ const styles = StyleSheet.create({
 
     backgroundColor: 'gray',
     height: 5,
+    width: 30,
+    borderRadius: 5,
     marginTop: 20,
   },
 });

@@ -80,6 +80,7 @@ const styles = StyleSheet.create({
   container: {
     width: '100%',
     padding: 30,
+
     backgroundColor: 'white',
     flex: 1,
   },
@@ -103,6 +104,7 @@ const styles = StyleSheet.create({
     marginVertical: 10,
   },
   stepper: {
+    marginHorizontal: 10,
     marginVertical: 20,
   },
   step: {
