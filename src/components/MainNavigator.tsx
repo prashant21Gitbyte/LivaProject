@@ -7,6 +7,8 @@ import BottomTabsNavigator from './BottomTabsNavigator';
 
 import {NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
+import DetailScreen from '../screens/DetailsScreen';
+import RelatedQuicKLinks from '../screens/RelatedQuickLinks';
 
 const Stack = createNativeStackNavigator();
 
@@ -36,6 +38,17 @@ const MainNavigator = () => {
           options={{headerShown: false}}
           name="BottomTabs"
           component={BottomTabsNavigator}
+        />
+
+        <Stack.Screen
+          options={{headerShown: false}}
+          name="AccountDetailsDetails"
+          component={DetailScreen}
+        />
+        <Stack.Screen
+          options={{headerShown: false}}
+          name="AccountDetailsRelatedLinks"
+          component={RelatedQuicKLinks}
         />
       </Stack.Navigator>
     </NavigationContainer>

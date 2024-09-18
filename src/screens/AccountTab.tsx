@@ -9,10 +9,13 @@ import {
   TouchableOpacity,
 } from 'react-native';
 import CircularProgress from 'react-native-circular-progress-indicator';
-
+import Ions from 'react-native-vector-icons/Ionicons';
 const {width} = Dimensions.get('window');
+import {useNavigation} from '@react-navigation/native';
+import DrawerScreen from '../screens/DrawerScreen';
 
-const AccountTab = () => {
+const AccountTab = props => {
+  const navigation = useNavigation();
   const userData = {
     image: require('../assets/images/personImage.png'),
     name: 'Riya Bhatnagar',
@@ -170,13 +173,96 @@ const AccountTab = () => {
                 Stage {currentStage} Name Here
               </Text>
               <View style={styles.navigation}>
-                <Text style={styles.navText}>← Stage 4 Name</Text>
-                <Text style={styles.navText}>Stage 6 Name →</Text>
+                <Text style={styles.navText}>←Stage 4 Name</Text>
+                <Text style={styles.navText}>Stage 6 Name→</Text>
               </View>
             </View>
           </View>
+
+          <TouchableOpacity>
+            <View
+              style={{
+                backgroundColor: '#2D949F',
+                flexDirection: 'row',
+                justifyContent: 'center',
+                alignItems: 'center',
+                gap: 5,
+                padding: 10,
+                borderRadius: 10,
+                marginTop: 10,
+              }}>
+              <Image
+                source={require('../assets/images/doneringround.png')}
+                style={{width: 30, height: 30}}
+              />
+              <Text style={{color: 'white', fontWeight: 'bold'}}>
+                Mark Status As Complete
+              </Text>
+            </View>
+          </TouchableOpacity>
+
+          <View style={styles.linksContainer}>
+            <TouchableOpacity
+              style={{
+                padding: 10,
+                flexDirection: 'row',
+                justifyContent: 'space-between',
+                alignItems: 'center',
+              }}
+              onPress={() => {
+                navigation.navigate('AccountDetailsRelatedLinks');
+              }}>
+              <Text style={{color: 'black', fontWeight: '600', fontSize: 17}}>
+                Related Quick Links
+              </Text>
+              <Ions name="chevron-forward-sharp" size={20} />
+            </TouchableOpacity>
+
+            <TouchableOpacity
+              style={{
+                padding: 10,
+                flexDirection: 'row',
+                justifyContent: 'space-between',
+                alignItems: 'center',
+              }}
+              onPress={() => {
+                navigation.navigate('AccountDetailsDetails');
+              }}>
+              <Text style={{color: 'black', fontWeight: '600', fontSize: 17}}>
+                Details
+              </Text>
+              <Ions name="chevron-forward-sharp" size={20} />
+            </TouchableOpacity>
+
+            <TouchableOpacity
+              style={{
+                padding: 10,
+                flexDirection: 'row',
+                justifyContent: 'space-between',
+                alignItems: 'center',
+              }}>
+              <Text style={{color: 'black', fontWeight: '600', fontSize: 17}}>
+                Related
+              </Text>
+              <Ions name="chevron-forward-sharp" size={20} />
+            </TouchableOpacity>
+
+            <TouchableOpacity
+              style={{
+                padding: 10,
+                flexDirection: 'row',
+                justifyContent: 'space-between',
+                alignItems: 'center',
+              }}>
+              <Text style={{color: 'black', fontWeight: '600', fontSize: 17}}>
+                Feed
+              </Text>
+              <Ions name="chevron-forward-sharp" size={20} />
+            </TouchableOpacity>
+          </View>
         </View>
       </View>
+      <DrawerScreen />
     </View>
   );
 };
@@ -289,8 +375,8 @@ const styles = StyleSheet.create({
     borderBottomLeftRadius: 0,
   },
   bottomContent: {
-    backgroundColor: 'yellow',
-    padding: 20,
+    //backgroundColor: 'yellow',
+    padding: 10,
     margin: 20,
     gap: 10,
     borderRadius: 10,
@@ -305,11 +391,17 @@ const styles = StyleSheet.create({
   navigation: {
     flexDirection: 'row',
     justifyContent: 'space-between',
+    gap: 20,
+    marginTop: 5,
     width: 200,
   },
   navText: {
     color: '#a9a9a9',
+    //color: 'black',
     fontSize: 14,
+  },
+  linksContainer: {
+    marginTop: 20,
   },
 });
 
