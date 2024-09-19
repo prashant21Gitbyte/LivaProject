@@ -36,7 +36,7 @@ const HomeTab = () => {
 
   return (
     <View style={styles.container}>
-      <View style={{height: 275, width: '100%'}}>
+      <View style={{height: 300, width: '100%'}}>
         <ImageBackground
           source={require('../assets/images/HeroBackground.png')}
           style={styles.HeroBackground}>
@@ -235,7 +235,7 @@ const styles = StyleSheet.create({
   itemContainer: {
     margin: 0,
     //backgroundColor: 'yellow',
-    width: 270, // Full width of the screen
+    width: 350, // Full width of the screen
     justifyContent: 'center', // Center image vertically
     alignItems: 'center', // Center image horizontally
   },

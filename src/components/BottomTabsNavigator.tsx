@@ -8,6 +8,7 @@ import AccountTab from '../screens/AccountTab';
 import ProgressSection from '../screens/ProgressIndicator';
 import DrawerScreen from '../screens/DrawerScreen';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
+import SideDrawer from './SideDrawerComponent';
 
 import StatusIndicator from './StatusIndicatorAccountDetails';
 
@@ -34,11 +35,7 @@ function Second() {
 }
 
 function Third() {
-  return (
-    <View style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
-      <AccountTab />
-    </View>
-  );
+  return <SideDrawer />;
 }
 
 function Fourth() {

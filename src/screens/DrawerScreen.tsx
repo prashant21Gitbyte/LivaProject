@@ -119,10 +119,10 @@ const styles = StyleSheet.create({
   handle: {
     //width: 40,
 
-    backgroundColor: 'gray',
+    backgroundColor: '#D9D9D9',
     height: 5,
-    width: 30,
-    borderRadius: 5,
+    width: 40,
+    borderRadius: 10,
     marginTop: 20,
   },
 });

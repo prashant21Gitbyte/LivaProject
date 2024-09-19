@@ -61,11 +61,16 @@ const AccountTab = props => {
 
           <View style={styles.detailsContainer}>
             <View style={styles.userInfoContainer}>
-              <View
-                style={{flexDirection: 'row', alignItems: 'center', gap: 10}}>
-                <Image source={userData.image} style={styles.userImage} />
-                <Text style={styles.userName}>{userData.name}</Text>
-              </View>
+              <TouchableOpacity
+                onPress={() => {
+                  navigation.toggleDrawer();
+                }}>
+                <View
+                  style={{flexDirection: 'row', alignItems: 'center', gap: 10}}>
+                  <Image source={userData.image} style={styles.userImage} />
+                  <Text style={styles.userName}>{userData.name}</Text>
+                </View>
+              </TouchableOpacity>
 
               <TouchableOpacity>
                 <View>
@@ -153,32 +158,33 @@ const AccountTab = props => {
 
       <View style={styles.bottomContainer}>
         <View style={styles.bottomContent}>
-          <View style={styles.containerProgressIndicator}>
-            {/* Circular Progress Indicator */}
-            <CircularProgress
-              radius={30}
-              value={currentStage}
-              maxValue={totalStages}
-              textColor="#0097A7"
-              valueSuffix={`/ ${totalStages}`}
-              inActiveStrokeColor="#d3d3d3"
-              activeStrokeColor="#0097A7"
-              activeStrokeWidth={10}
-              inActiveStrokeWidth={10}
-            />
+          <TouchableOpacity onPress={() => navigation.navigate('Stage Status')}>
+            <View style={styles.containerProgressIndicator}>
+              {/* Circular Progress Indicator */}
+              <CircularProgress
+                radius={30}
+                value={currentStage}
+                maxValue={totalStages}
+                textColor="#0097A7"
+                valueSuffix={`/ ${totalStages}`}
+                inActiveStrokeColor="#d3d3d3"
+                activeStrokeColor="#0097A7"
+                activeStrokeWidth={10}
+                inActiveStrokeWidth={10}
+              />
 
-            {/* Stage Information */}
-            <View style={styles.stageInfo}>
-              <Text style={styles.currentStage}>
-                Stage {currentStage} Name Here
-              </Text>
-              <View style={styles.navigation}>
-                <Text style={styles.navText}>←Stage 4 Name</Text>
-                <Text style={styles.navText}>Stage 6 Name→</Text>
+              {/* Stage Information */}
+              <View style={styles.stageInfo}>
+                <Text style={styles.currentStage}>
+                  Stage {currentStage} Name Here
+                </Text>
+                <View style={styles.navigation}>
+                  <Text style={styles.navText}>←Stage 4 Name</Text>
+                  <Text style={styles.navText}>Stage 6 Name→</Text>
+                </View>
               </View>
             </View>
-          </View>
-
+          </TouchableOpacity>
           <TouchableOpacity>
             <View
               style={{
