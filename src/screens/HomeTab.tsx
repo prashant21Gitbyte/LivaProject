@@ -9,6 +9,7 @@ import {
   Dimensions,
   TouchableOpacity,
 } from 'react-native';
+import {useNavigation} from '@react-navigation/native';
 
 const banners = [
   {id: '1', image: require('../assets/images/bannerOne.png')},
@@ -33,6 +34,7 @@ const HomeTab = () => {
       <Image source={item.image} style={styles.image} />
     </View>
   );
+  let navigation = useNavigation();
 
   return (
     <View style={styles.container}>
@@ -121,7 +123,7 @@ const HomeTab = () => {
           borderBottomLeftRadius: 0,
         }}>
         <View style={styles.optionsContainer}>
-          <TouchableOpacity>
+          <TouchableOpacity onPress={() => navigation.navigate('Vehicle')}>
             <View style={{justifyContent: 'center', alignItems: 'center'}}>
               <Image
                 source={require('../assets/images/Inventory.png')}
@@ -133,7 +135,7 @@ const HomeTab = () => {
             </View>
           </TouchableOpacity>
 
-          <TouchableOpacity>
+          <TouchableOpacity onPress={() => navigation.navigate('Models')}>
             <View style={{justifyContent: 'center', alignItems: 'center'}}>
               <Image
                 source={require('../assets/images/Compare.png')}

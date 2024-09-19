@@ -30,41 +30,45 @@ const StatusIndicator = () => {
       {/* Vertical Stepper */}
       <View style={styles.stepper}>
         {steps.map((step, index) => (
-          <View key={index} style={styles.step}>
-            <View style={styles.iconContainer}>
-              {step.status === 'completed' ? (
-                <IonIcons
-                  name="checkmark-circle-sharp"
-                  size={24}
-                  color="green"
-                />
-              ) : step.status === 'current' ? (
-                <IonIcons
-                  name="checkmark-circle-sharp"
-                  size={24}
-                  color="orange"
-                />
-              ) : (
-                <IonIcons
-                  name="checkmark-circle-sharp"
-                  size={24}
-                  color="grey"
-                />
-              )}
-              {index < steps.length - 1 && <View style={styles.verticalLine} />}
+          <TouchableOpacity key={index}>
+            <View key={index} style={styles.step}>
+              <View style={styles.iconContainer}>
+                {step.status === 'completed' ? (
+                  <IonIcons
+                    name="checkmark-circle-sharp"
+                    size={24}
+                    color="green"
+                  />
+                ) : step.status === 'current' ? (
+                  <IonIcons
+                    name="checkmark-circle-sharp"
+                    size={24}
+                    color="orange"
+                  />
+                ) : (
+                  <IonIcons
+                    name="checkmark-circle-sharp"
+                    size={24}
+                    color="grey"
+                  />
+                )}
+                {index < steps.length - 1 && (
+                  <View style={styles.verticalLine} />
+                )}
+              </View>
+              <Text
+                style={[
+                  {
+                    alignSelf: 'flex-start',
+                  },
+                  step.status === 'current'
+                    ? styles.currentStepText
+                    : styles.stepText,
+                ]}>
+                {step.title}
+              </Text>
             </View>
-            <Text
-              style={[
-                {
-                  alignSelf: 'flex-start',
-                },
-                step.status === 'current'
-                  ? styles.currentStepText
-                  : styles.stepText,
-              ]}>
-              {step.title}
-            </Text>
-          </View>
+          </TouchableOpacity>
         ))}
       </View>
 

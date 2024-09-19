@@ -9,6 +9,8 @@ import {NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import DetailScreen from '../screens/DetailsScreen';
 import RelatedQuicKLinks from '../screens/RelatedQuickLinks';
+import Vehicle from '../screens/VihicleScreen';
+import Models from '../screens/ModelsScreen';
 
 const Stack = createNativeStackNavigator();
 
@@ -49,6 +51,16 @@ const MainNavigator = () => {
           options={{headerShown: false}}
           name="AccountDetailsRelatedLinks"
           component={RelatedQuicKLinks}
+        />
+        <Stack.Screen
+          options={{headerShown: false}}
+          name="Vehicle"
+          component={Vehicle}
+        />
+        <Stack.Screen
+          options={{headerShown: false}}
+          name="Models"
+          component={Models}
         />
       </Stack.Navigator>
     </NavigationContainer>

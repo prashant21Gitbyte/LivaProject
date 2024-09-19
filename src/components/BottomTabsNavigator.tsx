@@ -11,6 +11,7 @@ import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import SideDrawer from './SideDrawerComponent';
 
 import StatusIndicator from './StatusIndicatorAccountDetails';
+import Contact from '../screens/Contacts';
 
 function First() {
   return (
@@ -39,7 +40,8 @@ function Third() {
 }
 
 function Fourth() {
-  return <DrawerScreen />;
+  // return <DrawerScreen />;
+  return <Contact />;
 }
 
 function Fifth() {
