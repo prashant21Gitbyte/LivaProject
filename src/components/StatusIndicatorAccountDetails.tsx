@@ -1,4 +1,5 @@
 import React from 'react';
+import {useState} from 'react';
 import {View, Text, StyleSheet, TouchableOpacity} from 'react-native';
 import IonIcons from 'react-native-vector-icons/Ionicons';
 
@@ -16,21 +17,36 @@ const steps = [
 const StatusIndicator = () => {
   const currentStage = 5;
   const totalStages = 8;
+  const [currentStageState, setCurrentStageState] = useState(currentStage);
+
+  const updateStage = index => {
+    console.log(index);
+    setCurrentStageState(index + 1);
+    steps.map((item, mapIndex) => {
+      if (mapIndex < index) {
+        item.status = 'completed';
+      } else if (mapIndex === index) {
+        item.status = 'current';
+      }
+    });
+  };
 
   return (
     <View style={styles.container}>
       {/* Progress Bar */}
       <View style={styles.progressBar}>
         <Text
-          style={styles.progressText}>{`${currentStage}/${totalStages}`}</Text>
-        <Text style={styles.currentStageText}>Stage {currentStage}</Text>
+          style={
+            styles.progressText
+          }>{`${currentStageState}/${totalStages}`}</Text>
+        <Text style={styles.currentStageText}>Stage {currentStageState}</Text>
       </View>
       <View style={styles.horizontalLine} />
 
       {/* Vertical Stepper */}
       <View style={styles.stepper}>
         {steps.map((step, index) => (
-          <TouchableOpacity key={index}>
+          <TouchableOpacity key={index} onPress={() => updateStage(index)}>
             <View key={index} style={styles.step}>
               <View style={styles.iconContainer}>
                 {step.status === 'completed' ? (
