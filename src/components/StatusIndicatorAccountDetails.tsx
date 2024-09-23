@@ -27,6 +27,8 @@ const StatusIndicator = () => {
         item.status = 'completed';
       } else if (mapIndex === index) {
         item.status = 'current';
+      } else if (mapIndex > index) {
+        item.status = 'upcoming';
       }
     });
   };
