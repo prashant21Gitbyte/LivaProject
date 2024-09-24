@@ -2,6 +2,7 @@ import React from 'react';
 import {useState} from 'react';
 import {View, Text, StyleSheet, TouchableOpacity} from 'react-native';
 import IonIcons from 'react-native-vector-icons/Ionicons';
+import {useNavigation} from '@react-navigation/native';
 
 const steps = [
   {title: 'Stage 1', status: 'completed'},
@@ -15,6 +16,7 @@ const steps = [
 ];
 
 const StatusIndicator = () => {
+  const navigation = useNavigation();
   const currentStage = 5;
   const totalStages = 8;
   const [currentStageState, setCurrentStageState] = useState(currentStage);
@@ -91,7 +93,9 @@ const StatusIndicator = () => {
       </View>
 
       {/* Button */}
-      <TouchableOpacity style={styles.button}>
+      <TouchableOpacity
+        style={styles.button}
+        onPress={() => navigation.navigate('Account Home')}>
         <Text style={styles.buttonText}>Mark Status as Complete</Text>
       </TouchableOpacity>
     </View>
